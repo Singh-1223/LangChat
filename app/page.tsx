@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import DemoGif from "@/images/landingPage/earth-8512.gif"
+
 export default function Home() {
+  
   return (
     <main className="">
       <div className="relative isolate pt-14 Odark: bg-gray-900">
