@@ -7,21 +7,21 @@ const UserAvatar = ({
     image,
     className,
   }:{
-    name:string;
-    image:string;
+    name?:string | null;
+    image?:string | null;
     className?:string;
   }) => {
     return (
         <Avatar className={cn("bg-white text-black",className)}>
-             {/* {image && (
+             {image && (
                 <Image
                   src={image}
-                  alt={image}
+                  alt={image || "user name"}
                   width={40}
                   height={40}
                   className="rounded-full"
                 />
-             )} */}
+             )}
 
             {/* <AvatarImage src="https://github.com/shadcn.png" /> */}
             <AvatarFallback
