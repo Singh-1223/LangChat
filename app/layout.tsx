@@ -3,6 +3,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import { ThemeProvider } from '@/components/ui/ThemeProvider'
 import ClientProvider from '@/components/ui/ClientProvider'
+import FirebaseAuthProvider from '@/components/ui/FirebaseAuthProvider'
 
 
 export const metadata: Metadata = {
@@ -16,9 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+
     <ClientProvider>
       <html lang="en">
         <body className="flex flex-col min-h-screen">
+          <FirebaseAuthProvider>
+
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -29,6 +33,7 @@ export default function RootLayout({
 
             {children}
           </ThemeProvider>
+          </FirebaseAuthProvider>
         </body>
       </html>
     </ClientProvider>
