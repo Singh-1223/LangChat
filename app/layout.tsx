@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import { ThemeProvider } from '@/components/ui/ThemeProvider'
 import ClientProvider from '@/components/ui/ClientProvider'
 import FirebaseAuthProvider from '@/components/ui/FirebaseAuthProvider'
+import SubscriptionProvider from '@/components/ui/SubscriptionProvider'
 
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
       <html lang="en">
         <body className="flex flex-col min-h-screen">
           <FirebaseAuthProvider>
+            <SubscriptionProvider>
 
           <ThemeProvider
             attribute="class"
@@ -32,7 +34,9 @@ export default function RootLayout({
             <Header />
 
             {children}
-          </ThemeProvider>
+            
+             </ThemeProvider>
+           </SubscriptionProvider>
           </FirebaseAuthProvider>
         </body>
       </html>
