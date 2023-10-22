@@ -5,7 +5,7 @@ import { ThemeProvider } from '@/components/ui/ThemeProvider'
 import ClientProvider from '@/components/ui/ClientProvider'
 import FirebaseAuthProvider from '@/components/ui/FirebaseAuthProvider'
 import SubscriptionProvider from '@/components/ui/SubscriptionProvider'
-
+import { Toaster } from '@/components/ui/Toaster'
 
 export const metadata: Metadata = {
   title: 'LangChat',
@@ -26,15 +26,16 @@ export default function RootLayout({
             <SubscriptionProvider>
 
           <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
+             attribute="class"
+             defaultTheme="system"
+             enableSystem
+             disableTransitionOnChange
           >
             <Header />
 
-            {children}
-            
+                  {children}
+              
+              <Toaster/>
              </ThemeProvider>
            </SubscriptionProvider>
           </FirebaseAuthProvider>
