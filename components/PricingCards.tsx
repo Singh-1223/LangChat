@@ -19,9 +19,9 @@ const tiers = [
     },
     {
         name:"Pro",
-        id:"si_OnlcsLNQYbMVzV",
+        id:"pro",
         href:"#",
-        priceMonthly:"$5.99",
+        priceMonthly:"₹11.00 INR / month",
         descripton:"Unlock the full Potential with Pro!",
         features:[
             "Unlimited Messages in Chats",
