@@ -12,10 +12,14 @@ const ChatsPage = ({searchParams:{error}}: Props) => {
     <div>
         {/* Chat permission chat */}
 
-        {/* ChatList */}
-        <ChatList/>
+         {/* ChatList */}
+         <ChatList/>
     </div>
   )
 }
 
 export default ChatsPage;
+
+
+
+
