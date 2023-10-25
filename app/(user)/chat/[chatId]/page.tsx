@@ -1,5 +1,16 @@
+import { authOptions } from "@/auth"
+import ChatInput from "@/components/ui/ChatInput"
+import { getServerSession } from "next-auth"
 
-const ChatPage = () => {
+type Props = {
+  params: {
+     chatId:string;
+  }
+}
+
+const ChatPage = async({params:{chatId}}:Props) => {
+  const session = await getServerSession(authOptions);
+
   return (
     <>  
        <div>uuuuuuuuuhhhhhhhhhhhh</div>
@@ -8,7 +19,7 @@ const ChatPage = () => {
 
         {/* ChatMessages  */}
 
-        {/* ChatInput */}
+        <ChatInput chatId={chatId}/>
     </>
   )
 }
