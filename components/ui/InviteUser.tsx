@@ -27,6 +27,7 @@ import { getDoc, getDocs, serverTimestamp, setDoc } from "firebase/firestore";
 import { addChatRef, chatMembersRef } from "@/lib/converters/ChatMembers";
 import { ToastAction } from "@radix-ui/react-toast";
 import { getUserByEmailRef } from "@/lib/converters/User";
+import ShareLink from "./ShareLink";
 const formSchema = z.object({
     email: z.string().email("Please enter a valid email address"),
 });
@@ -65,7 +66,7 @@ const InviteUser = ({chatId}:{chatId:string}) => {
       const isPro=
           subscription?.role === "pro" && subscription.status==='active';
           
-     if(!isPro && noOfUsersInChat>=2){
+     if(!isPro && noOfUsersInChat>=5){
         toast({
             title:"Free Plan limit exceeded",
             description:
@@ -176,11 +177,11 @@ const InviteUser = ({chatId}:{chatId:string}) => {
              </DialogContent>
           </Dialog>
 
-          {/* <ShareLink
+          <ShareLink
             isOpen={openInviteLink}
             setIsOpen ={setOpenInviteLink}
             chatId={chatId}
-           /> */}
+           />
         </>
      )
   )

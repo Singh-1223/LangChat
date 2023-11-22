@@ -3,6 +3,7 @@ import AdminControls from "@/components/ui/AdminControls"
 import ChatInput from "@/components/ui/ChatInput"
 import ChatMembersBadges from "@/components/ui/ChatMembersBadges"
 import ChatMessages from "@/components/ui/ChatMessages"
+import { chatMembersRef } from "@/lib/converters/ChatMembers"
 import { sortedMessagesRef } from "@/lib/converters/Message"
 import { getDocs } from "firebase/firestore"
 import { getServerSession } from "next-auth"
@@ -18,12 +19,16 @@ const ChatPage = async({params:{chatId}}:Props) => {
    const initialMessages = (await getDocs(sortedMessagesRef(chatId))).docs.map(
      (doc) => doc.data()
    );
+   
+   const hasAccess = (await getDocs(chatMembersRef(chatId))).docs
+          .map((doc) =>doc.id)
+          .includes(session?.user.id!);
 
   return (
     <>  
    
         {/* Admin Controls   */}
-           <AdminControls chatId={chatId}/>
+          <AdminControls chatId={chatId}/>
 
          <ChatMembersBadges chatId ={chatId}/>
 

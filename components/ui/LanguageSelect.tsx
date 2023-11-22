@@ -60,7 +60,7 @@ const LanguageSelect = () => {
                         </Link>
                       ))}
                     </>
-                )
+                
                 {/* } */}
             </SelectContent>
           </Select>
